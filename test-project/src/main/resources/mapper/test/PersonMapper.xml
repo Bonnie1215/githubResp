@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="win.sunshine.base.service.api.mapper.PersonMapper">
+	<resultMap type="win.sunshine.base.service.api.domain.Person" id="person">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="address" property="address"/>
+		<result column="tel" property="tel"/>
+		<!-- 
+			一对多关系
+			property: 指的是集合属性的值, ofType：指的是集合中元素的类型
+		 -->
+		 <collection property="orders" ofType="win.sunshine.base.service.api.domain.Order">
+			<id column="id" property="id"/>
+			<result column="number" property="number"/>		 
+			<result column="price" property="price"/>		 
+		 </collection>
+	</resultMap>
+	
+	<!-- 根据id查询Person, 关联将Orders查询出来 -->  
+	<select id="selectPersonById" parameterType="String" resultMap="person">
+		select p.*, o.* from person p, orders o where p.personId  = o.pid and p.personId = #{id}
+	</select>
+</mapper>

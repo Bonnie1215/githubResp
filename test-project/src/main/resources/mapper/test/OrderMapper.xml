@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="win.sunshine.base.service.api.mapper.OrderMapperr">
+	<resultMap type="win.sunshine.base.service.api.domain.Order" id="orderBean">
+    	<id column="id" property="id"/>
+    	<result column="number" property="number"/>
+    	<result column="price" property="price"/>
+    	<!-- 
+    		多对一的关系
+    		property: 指的是属性的值, javaType：指的是属性的类型-
+    	-->
+    	<association property="person" javaType="win.sunshine.base.service.api.domain.Person">
+    		<id column="id" property="id"/>
+			<result column="name" property="name"/>
+			<result column="address" property="address"/>
+			<result column="tel" property="tel"/>
+    	</association>
+	</resultMap>
+	
+	<select id="selectOrderById" parameterType="String" resultMap="orderBean">
+		select p.*, o.* from person p, orders o where p.personId  = o.pid and o.orderId = #{id}
+	</select>
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="win.sunshine.base.service.api.mapper.TestMapper">
+	<resultMap type="win.sunshine.base.service.api.domain.User" id="user">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="age" column="age"/>
+	</resultMap>
+	
+	<resultMap type="win.sunshine.base.service.api.domain.Test" id="test">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="startTime" column="startTime"/>
+	</resultMap>
+	
+	<select id="find" parameterType="java.lang.Integer" resultType="string">
+		select name from user 
+		<where>
+			<if test="id != null">
+				AND id=#{id}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 批量插入 -->
+	<insert id="insert" parameterType="java.util.List" keyProperty="id" useGeneratedKeys="true">
+		insert into user(name,age)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+				#{item.name},#{item.age}
+			)	
+		</foreach>
+	</insert>
+	
+	<!-- 批量更新 -->
+	<update id="update" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			update user set name=#{item.name},age=#{item.age}
+			where id=#{item.id}
+		</foreach>		
+	</update>
+	
+	<!-- 插入有日期 -->
+	<insert id="insertTestDate" parameterType="win.sunshine.base.service.api.domain.Test" useGeneratedKeys="true" keyColumn="id">
+		insert into test(name, startTime) values (#{name},#{startTime})
+	</insert>
+	
+</mapper>

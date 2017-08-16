@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>测试上传Excel文件</title>
+	</head>
+	
+	<body>
+		<form action="/test-project/file/upload" method="post" enctype="multipart/form-data">
+			<input type="file" name="file" />
+			<input type="submit" value="submit"/>
+		</form>
+		
+		<h5><a href="/test-project/file/download">点击下载 springmvc</a></h5> 
+		<h5><a href="/test-project/file/downloadByJava">点击下载 java</a></h5> 
+	</body>
+</html>
