@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- targetRuntime指定生成的代码的运行时环境 -->
+	<!-- defaultModelType=flat 该模型为每一张表只生成一个实体类 -->
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+        	<!-- mapper java类需要继承的基础类 -->
+            <property name="mappers" value="com.buleocean_health.springboot.utils.MyMapper"/>
+        </plugin>
+        
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql:///test?useEncode=true;characterEncoding=utf-8;"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+		<!-- domain java文件 -->
+        <javaModelGenerator targetPackage="com.buleocean_health.springboot.domain" targetProject="src/main/java"/>
+        
+		<!-- mapper xml文件 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/mapper"/>
+		
+		<!-- mapper java文件 -->
+        <javaClientGenerator targetPackage="com.buleocean_health.springboot.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <table tableName="%">
+            <!--mysql 配置-->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        
+        
+    </context>
+    
+</generatorConfiguration>

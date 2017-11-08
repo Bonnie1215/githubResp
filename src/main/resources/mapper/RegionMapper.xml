@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.buleocean_health.springboot.mapper.RegionMapper" >
+  <resultMap id="BaseResultMap" type="com.buleocean_health.springboot.domain.Region" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="REGION_ID" property="regionId" jdbcType="DOUBLE" />
+    <result column="REGION_CODE" property="regionCode" jdbcType="VARCHAR" />
+    <result column="REGION_NAME" property="regionName" jdbcType="VARCHAR" />
+    <result column="PARENT_ID" property="parentId" jdbcType="DOUBLE" />
+    <result column="REGION_LEVEL" property="regionLevel" jdbcType="DOUBLE" />
+    <result column="REGION_ORDER" property="regionOrder" jdbcType="DOUBLE" />
+    <result column="REGION_NAME_EN" property="regionNameEn" jdbcType="VARCHAR" />
+    <result column="REGION_SHORTNAME_EN" property="regionShortnameEn" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap id="AreasDto" type="com.buleocean_health.springboot.dto.AreasDto">
+  	<result column="REGION_ID" property="name" jdbcType="VARCHAR"/>
+  	<result column="REGION_NAME" property="value" jdbcType="VARCHAR"/>
+  	<collection property="children" column="REGION_ID" javaType="java.util.ArrayList"
+  		ofType="com.buleocean_health.springboot.dto.AreasDto" select="queryList"></collection>
+  </resultMap>
+  
+  <select id="queryList" parameterType="double" resultMap="AreasDto">
+  	select * from region where PARENT_ID=#{parentId} ORDER BY REGION_ID ASC
+  </select>
+  
+ <!--  <select id="getArea" parameterType="double" resultMap="AreasDto">
+  	select * from region where 
+  </select> -->
+  
+</mapper>
