@@ -11,6 +11,8 @@ import java.util.regex.Pattern;
  */
 public class StringUtils {
 	
+	// 特殊字符
+	private static Pattern specialStr = Pattern.compile("[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]");
 	
 	/**
 	 * 格式化字符串, 如果为null, 返回 "null"
@@ -209,7 +211,7 @@ public class StringUtils {
 		if (isEmpty(mobiles)){
 			return false;
 		}
-        Pattern p = Pattern.compile("^((13[0-9])|(14[5|7|9])|(15[^4,\\D])|(17[0|1|5-8])|(18[0-9]))\\d{8}$");     
+        Pattern p = Pattern.compile("^((13[0-9])|(14[5|7|9])|(15[^4,\\D])|(17[0|1|3-8])|(18[0-9]))\\d{8}$");     
         Matcher m = p.matcher(mobiles);      
         return m.matches();     
     } 
@@ -245,6 +247,16 @@ public class StringUtils {
 		Matcher matcher1= isIDCard1.matcher(cardId);
 		Matcher matcher2= isIDCard2.matcher(cardId);
 		return matcher1.matches()||matcher2.matches();
+	}
+
+	/**
+	 * 去除字符串中的特殊字符
+	 * @param str
+	 * @return
+	 */
+	public static String removeSpecialStr(String str) {
+		Matcher m = specialStr.matcher(str);
+		return m.replaceAll("").trim();
 	}
 
 }
