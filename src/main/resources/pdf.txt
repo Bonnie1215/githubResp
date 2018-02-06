@@ -1,0 +1,202 @@
+{
+  "context": {
+    "item": [
+      {
+        "attr": "header",
+        "x": "12",
+        "y": "3",
+        "format": "护理员档案",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "护理员档案"
+      },
+      {
+        "attr": "delimiter",
+        "x": "12",
+        "y": "3",
+        "format": "分隔符",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "------------------------------------------------------------------------------------------------------------------"
+      },
+      {
+        "attr": "workerName",
+        "x": "12",
+        "y": "3",
+        "format": "姓名：%s",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "姓名："
+      },
+      {
+        "attr": "sexName",
+        "x": "12",
+        "y": "3",
+        "format": "性别：%s",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "性别："
+      },
+      {
+        "attr": "hireDate",
+        "x": "12",
+        "y": "3",
+        "format": "入职日期：%s",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "入职日期："
+      },
+      {
+        "attr": "height",
+        "x": "12",
+        "y": "3",
+        "format": "身高：%scm",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "身高："
+      },
+      {
+        "attr": "weight",
+        "x": "12",
+        "y": "3",
+        "format": "体重：%skg",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "体重："
+      },
+      {
+        "attr": "serviceYears",
+        "x": "12",
+        "y": "3",
+        "format": "工作年限：%s年",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "工作年限："
+      },
+      {
+        "attr": "avatarPhotoUrl",
+        "x": "12",
+        "y": "3",
+        "format": "个人照片",
+        "type": "image",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "指定默认图片位置"
+      },
+      {
+        "attr": "phone",
+        "x": "12",
+        "y": "3",
+        "format": "电话：%s",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "电话："
+      },
+      {
+        "attr": "idCard",
+        "x": "12",
+        "y": "3",
+        "format": "身份证号：%s",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "身份证号："
+      },
+      {
+        "attr": "provinceName",
+        "x": "12",
+        "y": "3",
+        "format": "籍贯：%s",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "籍贯："
+      },
+      {
+        "attr": "contact",
+        "x": "12",
+        "y": "3",
+        "format": "紧急联系人：%s",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "紧急联系人："
+      },
+      {
+        "attr": "contactPhone",
+        "x": "12",
+        "y": "3",
+        "format": "联系人电话：%s",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "联系人电话："
+      },
+      {
+        "attr": "skill",
+        "x": "12",
+        "y": "3",
+        "format": "护理技能：%s",
+        "type": "text",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "护理技能："
+      },
+      {
+        "attr": "idCardFacePhotoUrl",
+        "x": "12",
+        "y": "3",
+        "format": "身份证正面",
+        "type": "image",
+        "width": "1",
+        "height": "1",
+        "-size": "10",
+        "defaultValue": "指定默认图片位置"
+      },
+      {
+        "attr": "healthCertPhotoUrl",
+        "x": "12",
+        "y": "3",
+        "format": "健康证",
+        "type": "image",
+        "width": "1",
+        "height": "1",
+        "defaultValue": "指定默认图片位置"
+      },
+      {
+        "attr": "educationPhotoUrl",
+        "x": "12",
+        "y": "3",
+        "format": "资质证件",
+        "type": "image",
+        "width": "1",
+        "height": "1",
+        "defaultValue": "指定默认图片位置"
+      }
+    ]
+  }
+}

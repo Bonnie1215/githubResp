@@ -38,6 +38,7 @@ import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.buleocean_health.springboot.interceprot.AuthHandleInterface;
 import com.buleocean_health.springboot.interceprot.ValidateInterceptor;
 
 @SpringBootApplication //申明让spring boot自动给程序进行必要的配置
@@ -82,12 +83,15 @@ public class AppStart extends WebMvcConfigurerAdapter {
     
     @Autowired
     private ValidateInterceptor validateInterceptor;
+    @Autowired
+    private AuthHandleInterface authHandleInterface;
     /**
      * 添加拦截器
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
     	registry.addInterceptor(validateInterceptor).addPathPatterns("/**").excludePathPatterns("/user/login","/error");
+    	registry.addInterceptor(authHandleInterface).addPathPatterns("/**");
     	super.addInterceptors(registry);
     }
     
