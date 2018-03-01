@@ -1,14 +1,14 @@
 package com.buleocean_health.springboot.domain.base;
 
 import java.util.List;
-
-
 import com.buleocean_health.springboot.domain.annotation.RemoveSpace;
 import com.buleocean_health.springboot.domain.valid.MyConstraint;
 
 /**
- * 字典 
+ * 字典
  * @author huyanqiu
+ * @date 2018年3月1日下午2:47:14
+ * @version 版本号：1.0
  *
  */
 public class Param {
